@@ -24,15 +24,13 @@
    
 ## General Information
 * Duration: 10 Weeks
-* Classes: Friday  (1 – 3 PM)
-* Starts: 28 March.
-* Ends: 30 May
-* ZOOM Link Classes: https://itesm.zoom.us/j/82721497924?pwd=XvXad92JST47aiGlHKlJ0wyDJ20Ua2.1
-    - Meeting ID: 827 2149 7924
-    - Passcode: MCR2
+* Classes: TBD
+* Starts: TBD
+* Ends: TBD
+* ZOOM Link Classes: TBD
 
 ## Live Sessions (Recordings)
-[Class Videos Playlist](https://tecmx-my.sharepoint.com/:f:/g/personal/mario_mtz_tec_mx/Eu4aJjOc0RBLs1J1edCuq-QBmOQsTwPm0lTtEs3sdNfCmw?e=yCfjUG)
+[Class Videos Playlist](https://tecmx-my.sharepoint.com/:f:/g/personal/mario_mtz_tec_mx/IgBG0kcW2BpCTINiPetrRbYFARndmeTkQG2pKxv-bqvlws8?e=b00u7L)
 
 
 ## General Requirements
