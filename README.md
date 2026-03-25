@@ -32,6 +32,7 @@
 ## Live Sessions (Recordings)
 [Class Videos Playlist](https://tecmx-my.sharepoint.com/:f:/g/personal/mario_mtz_tec_mx/IgBG0kcW2BpCTINiPetrRbYFARndmeTkQG2pKxv-bqvlws8?e=b00u7L)
 
+[Video Recordings](https://tecmx-my.sharepoint.com/:f:/g/personal/mario_mtz_tec_mx/IgBG0kcW2BpCTINiPetrRbYFAXvLPALXlzrCuoJgWLap9r4?e=46H9qG)
 
 ## General Requirements
 General requirements. Please be aware that a set of requirements especific for each session will be shown in each session subsection (Some items may be repeated).
