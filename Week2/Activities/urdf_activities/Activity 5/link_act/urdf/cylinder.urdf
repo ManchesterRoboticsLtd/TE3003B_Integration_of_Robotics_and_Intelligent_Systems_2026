@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+
+<robot name="cylinder_arm">
+
+    <link name="world">
+    </link>
+
+  <link name="link1">
+    <visual>
+    <origin xyz="0 0 0" rpy="0 1.57 0"/>
+      <geometry>
+        <cylinder length="0.4" radius="0.1" />
+      </geometry>
+      <material name="Grey">
+        <color rgba="0.67 0.67 .67 1.0"/>
+      </material>
+    </visual>
+  </link>
+
+  <link name="link2">
+    <visual>
+    <origin xyz="0 0 0" rpy="0 1.57 0"/>
+      <geometry>
+        <cylinder length="0.4" radius="0.05" />
+      </geometry>
+      <material name="Grey">
+        <color rgba="0.67 0.67 .67 1.0"/>
+      </material>
+    </visual>
+  </link>
+
+    <link name="link3">
+    <visual>
+    <origin xyz="0 0 0" rpy="0 1.57 1.57"/>
+      <geometry>
+        <cylinder length="0.1" radius="0.025" />
+      </geometry>
+      <material name="Grey">
+        <color rgba="0.67 0.67 .67 1.0"/>
+      </material>
+    </visual>
+  </link>
+
+  <link name="link4">
+    <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.01 0.3 0.2"/>
+      </geometry>
+      <material name="Grey">
+        <color rgba="0.67 0.67 .67 1.0"/>
+      </material>
+    </visual>
+  </link>
+
+  <joint name="joint1" type="fixed">
+    <origin xyz="0 0 1" rpy="0 0 0"/>
+    <parent link="world"/>
+    <child link="link1"/>
+  </joint>
+
+  <joint name="joint2" type="prismatic">                        
+    <parent link="link1"/>                                 
+    <child link="link2"/>                                     
+    <origin xyz="0.1 0 0" rpy="0 0 0"/>                       
+    <axis xyz="1 0 0"/>                                       
+    <limit lower="0.0" upper="0.2" effort="5.0" velocity="0.1"/>   
+  </joint>
+
+  <joint name="joint3" type="revolute">
+    <origin xyz="0.225 0 0" rpy="0 0 0"/>
+    <parent link="link2"/>
+    <child link="link3"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-0.785" upper="0.785" effort="5" velocity="2"/>
+  </joint>
+
+  <joint name="joint4" type="fixed">
+    <origin xyz="0.03 0 0" rpy="0 0 0"/>
+    <parent link="link3"/>
+    <child link="link4"/>
+  </joint>
+
+
+</robot>

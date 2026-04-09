@@ -1,0 +1,35 @@
+<?xml version="1.0"?>           <!--Declare XML Version typical value "1.0"-->
+
+<!--Start a Robot description-->
+<robot name="link_example">     <!--Define a new robot name: Robot Name-->
+
+<!--Declare Links to be used-->
+  <link name="link1" />
+  <link name="link2" />
+  <link name="link3" />
+  <link name="link4" />
+
+<!--Declare Joints to be used-->
+    <joint name="joint1" type="continuous"> <!--Declare Joint element 'name' and 'type' (revolute, continuos, prismatic, fixed)-->
+        <parent link="link1"/>              <!--parent: Parent link name -->
+        <child link="link2"/>               <!--child: child link name -->
+        <origin xyz="1 2 1" rpy="0 0 0" />  <!--origin: This is the transform from the parent link to the child link xyz: xyz offset rpy:rotaton offset (radians)-->
+        <axis xyz="0 0 1 " />               <!--Rotation/Translation axis for the joints (revolute,continuos/prismatic) noy used with Fixed Joints -->
+    </joint>
+
+    <joint name="joint2" type="prismatic">                        <!--Declare Joint element 'name' and 'type' (revolute, continuos, prismatic, fixed)-->
+        <parent link="link1"/>                                      <!--parent: Parent link name -->
+        <child link="link3"/>                                       <!--child: child link name -->
+        <origin xyz="0 0 0" rpy="0 0 0" />                       <!--origin: This is the transform from the parent link to the child link xyz: xyz offset rpy:rotaton offset (radians)-->
+        <axis xyz="1 0 0" />                                        <!--Rotation/Translation axis for the joints (revolute,continuos/prismatic) noy used with Fixed Joints -->
+        <limit lower="-2" upper="2" effort="5.0" velocity="0.1"/>   <!--Establish the limits of a joint Lower/Upper: lower/upper limits for revolute/prismatic joints in rad or m, Effort: maximum joint force (torque or force) depend on the joint, Velocity: Max velocity of the joint (rad/s or m/s) -->
+    </joint>
+
+    <joint name="joint3" type="prismatic">
+        <parent link="link3"/>
+        <child link="link4"/>
+        <origin xyz="2 1 2" rpy="0 0 -1.57" />
+        <axis xyz="0.707 0.707 0.707" />
+        <limit lower="0" upper="2" effort="5.0" velocity="0.1"/>
+    </joint>
+</robot>

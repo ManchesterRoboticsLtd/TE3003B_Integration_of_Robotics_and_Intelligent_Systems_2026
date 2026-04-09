@@ -1,0 +1,8 @@
+<?xml version="1.0"?>                           <!--Declare XML Version typical value "1.0"-->
+
+<!--Start a Robot description-->
+<robot name="continuos_joint_example">         <!--Define a new robot name: Robot Name-->       
+
+<!--WIRTE YOUR URDF HERE-->
+
+</robot>
