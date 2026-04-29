@@ -1,0 +1,66 @@
+<?xml version="1.0" ?>
+    <sdf version="1.5">
+        <model name="puzzlebot_track">
+            <static>true</static>
+                <link name="link">
+                    <collision name="collision">
+                        <geometry>
+                        <plane>
+                            <normal>0 0 1</normal>
+                            <size>10.0 10.0</size>
+                        </plane>
+                        </geometry>
+                            <surface>
+                                <contact>
+                                        <collide_bitmask>0xffff</collide_bitmask>
+                                </contact>
+                                <friction>
+                                        <ode>
+                                        <mu>100</mu>
+                                        <mu2>50</mu2>
+                                        </ode>
+                                </friction>
+                            </surface>
+                    </collision>
+                    <visual name="visual">
+                        <pose>0 0 -0.001</pose>
+                        <cast_shadows>false</cast_shadows>
+                        <geometry>
+                            <plane>
+                                    <normal>0 0 1</normal>
+                                    <size>10.0 10.0</size>
+                            </plane>
+                        </geometry>
+                <material>
+                    <ambient>1 1 1 1</ambient>
+                    <diffuse>1 1 1 1</diffuse>
+                    <specular>1 1 1 1</specular>
+                    <emissive>0.6 0.6 0.6 1</emissive>
+                </material>
+                    </visual>
+                    
+                    <visual name="puzzlebot_track_visual">
+                        <pose>0 0 0.0</pose>
+                        <cast_shadows>false</cast_shadows>
+                        <geometry>
+                            <plane>
+                                    <normal>0 0 1</normal>
+                                    <size>10.0 10.0</size>
+                            </plane>
+                        </geometry>
+                <material>
+                    <pbr>
+                        <metal>
+                            <albedo_map>model://puzzlebot_track/materials/textures/puzzlebot_track.png</albedo_map>
+                            <normal_map>model://puzzlebot_trackmaterials/textures/puzzlebot_track.png</normal_map>
+                        </metal>
+                    </pbr>
+                    <ambient>1 1 1 1</ambient>
+                    <diffuse>1 1 1 1</diffuse>
+                    <specular>1 1 1 1</specular>
+                    <emissive>0.0 0.0 0.0 1</emissive>
+                </material>
+                    </visual>
+                </link>
+        </model>
+    </sdf>

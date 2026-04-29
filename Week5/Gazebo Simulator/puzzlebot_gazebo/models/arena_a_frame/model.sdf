@@ -1,0 +1,466 @@
+<?xml version="1.0" ?>
+    <sdf version="1.5">
+        <model name="a-frame">
+            <static>true</static>
+
+                <link name="right_up">
+                    <pose>4.3 2.0 0.0 0 0 0.0</pose>
+                    <collision name='right_up_collision'>
+                        <pose>0.0 0.0 0.3 0 0 -1.5708</pose>
+                            <geometry>
+                                <box>
+                                    <size>4.0 0.6 0.6</size>
+                                </box>
+                            </geometry>
+                        <max_contacts>10</max_contacts>
+                        <surface>
+                            <bounce/>
+                            <friction>
+                            <ode/>
+                            </friction>
+                            <contact>
+                            <ode/>
+                            </contact>
+                        </surface>
+                    </collision>
+
+                    <visual name='right_up_mesh'>
+                        <pose>0.0 0.0 0.0 0 0 -1.5708</pose>
+                        <geometry>
+                        <mesh>
+                            <uri>model://arena_a_frame/meshes/MCR2_arena_side.stl</uri>
+                        </mesh>
+                        </geometry>
+                        <material>
+                            <ambient>1 1 1 1</ambient>
+                            <diffuse>1 1 1 1</diffuse>
+                            <specular>1 1 1 1</specular>
+                        </material>
+                    </visual>
+
+                <visual name='right_up_mcr2_logo'>
+                        <pose>-0.07509 0.0 0.3759 0.785398 0.00 -1.5708</pose>
+                        <geometry>
+                            <plane>
+                                    <normal>0 0 1</normal>
+                                    <size>4.0 0.636396</size>
+                            </plane>
+                        </geometry>
+                        <material>
+                            <ambient>1.0 1.0 1.0 1</ambient>
+                            <diffuse>1.0 1.0 1.0 1</diffuse>
+                            <specular>1.0 1.0 1.0 1</specular>
+                            <pbr>
+                                <metal>
+                                <albedo_map>model://arena_a_frame/materials/textures/mcr2_banner.png</albedo_map>
+                                <normal_map>model://arena_a_frame/materials/textures/mcr2_banner.png</normal_map>
+                                </metal>
+                            </pbr>
+                        </material>
+                    </visual>
+                </link>
+
+                <link name="right_down">
+                    <pose>4.3 -2.0 0.0 0 0 0.0</pose>
+                    <collision name='right_down_collision'>
+                        <pose>0.0 0.0 0.3 0 0 -1.5708</pose>
+                            <geometry>
+                                <box>
+                                    <size>4.0 0.6 0.6</size>
+                                </box>
+                            </geometry>
+                        <max_contacts>10</max_contacts>
+                        <surface>
+                            <bounce/>
+                            <friction>
+                            <ode/>
+                            </friction>
+                            <contact>
+                            <ode/>
+                            </contact>
+                        </surface>
+                    </collision>
+
+                    <visual name='right_down_mesh'>
+                        <pose>0.0 0.0 0.0 0 0 -1.5708</pose>
+                        <geometry>
+                        <mesh>
+                            <uri>model://arena_a_frame/meshes/MCR2_arena_side.stl</uri>
+                        </mesh>
+                        </geometry>
+                        <material>
+                            <ambient>1 1 1 1</ambient>
+                            <diffuse>1 1 1 1</diffuse>
+                            <specular>1 1 1 1</specular>
+                        </material>
+                    </visual>
+
+                <visual name='right_down_mcr2_logo'>
+                        <pose>-0.07509 0.0 0.3759 0.785398 0.00 -1.5708</pose>
+                        <geometry>
+                            <plane>
+                                    <normal>0 0 1</normal>
+                                    <size>4.0 0.636396</size>
+                            </plane>
+                        </geometry>
+                        <material>
+                            <ambient>1.0 1.0 1.0 1</ambient>
+                            <diffuse>1.0 1.0 1.0 1</diffuse>
+                            <specular>1.0 1.0 1.0 1</specular>
+                            <pbr>
+                                <metal>
+                                <albedo_map>model://arena_a_frame/materials/textures/mcr2_banner.png</albedo_map>
+                                <normal_map>model://arena_a_frame/materials/textures/mcr2_banner.png</normal_map>
+                                </metal>
+                            </pbr>
+                        </material>
+                    </visual>
+                </link>
+
+
+
+                <link name="left_up">
+                    <pose>-4.3 2.0 0.0 0 0 3.141592654</pose>
+                    <collision name='left_up_collision'>
+                        <pose>0.0 0.0 0.3 0 0 -1.5708</pose>
+                            <geometry>
+                                <box>
+                                    <size>4.0 0.6 0.6</size>
+                                </box>
+                            </geometry>
+                        <max_contacts>10</max_contacts>
+                        <surface>
+                            <bounce/>
+                            <friction>
+                            <ode/>
+                            </friction>
+                            <contact>
+                            <ode/>
+                            </contact>
+                        </surface>
+                    </collision>
+
+                    <visual name='left_up_mesh'>
+                        <pose>0.0 0.0 0.0 0 0 -1.5708</pose>
+                        <geometry>
+                        <mesh>
+                            <uri>model://arena_a_frame/meshes/MCR2_arena_side.stl</uri>
+                        </mesh>
+                        </geometry>
+                        <material>
+                            <ambient>1 1 1 1</ambient>
+                            <diffuse>1 1 1 1</diffuse>
+                            <specular>1 1 1 1</specular>
+                        </material>
+                    </visual>
+
+                <visual name='left_up_mcr2_logo'>
+                        <pose>-0.07509 0.0 0.3759 0.785398 0.00 -1.5708</pose>
+                        <geometry>
+                            <plane>
+                                    <normal>0 0 1</normal>
+                                    <size>4.0 0.636396</size>
+                            </plane>
+                        </geometry>
+                        <material>
+                            <ambient>1.0 1.0 1.0 1</ambient>
+                            <diffuse>1.0 1.0 1.0 1</diffuse>
+                            <specular>1.0 1.0 1.0 1</specular>
+                            <pbr>
+                                <metal>
+                                <albedo_map>model://arena_a_frame/materials/textures/mcr2_banner.png</albedo_map>
+                                <normal_map>model://arena_a_frame/materials/textures/mcr2_banner.png</normal_map>
+                                </metal>
+                            </pbr>
+                        </material>
+                    </visual>
+                </link>
+
+                <link name="left_down">
+                    <pose>-4.3 -2.0 0.0 0 0 3.141592654</pose>
+                    <collision name='left_down_collision'>
+                        <pose>0.0 0.0 0.3 0 0 -1.5708</pose>
+                            <geometry>
+                                <box>
+                                    <size>4.0 0.6 0.6</size>
+                                </box>
+                            </geometry>
+                        <max_contacts>10</max_contacts>
+                        <surface>
+                            <bounce/>
+                            <friction>
+                            <ode/>
+                            </friction>
+                            <contact>
+                            <ode/>
+                            </contact>
+                        </surface>
+                    </collision>
+
+                    <visual name='left_down_mesh'>
+                        <pose>0.0 0.0 0.0 0 0 -1.5708</pose>
+                        <geometry>
+                        <mesh>
+                            <uri>model://arena_a_frame/meshes/MCR2_arena_side.stl</uri>
+                        </mesh>
+                        </geometry>
+                        <material>
+                            <ambient>1 1 1 1</ambient>
+                            <diffuse>1 1 1 1</diffuse>
+                            <specular>1 1 1 1</specular>
+                        </material>
+                    </visual>
+
+                <visual name='left_down_mcr2_logo'>
+                        <pose>-0.07509 0.0 0.3759 0.785398 0.00 -1.5708</pose>
+                        <geometry>
+                            <plane>
+                                    <normal>0 0 1</normal>
+                                    <size>4.0 0.636396</size>
+                            </plane>
+                        </geometry>
+                        <material>
+                            <ambient>1.0 1.0 1.0 1</ambient>
+                            <diffuse>1.0 1.0 1.0 1</diffuse>
+                            <specular>1.0 1.0 1.0 1</specular>
+                            <pbr>
+                                <metal>
+                                <albedo_map>model://arena_a_frame/materials/textures/mcr2_banner.png</albedo_map>
+                                <normal_map>model://arena_a_frame/materials/textures/mcr2_banner.png</normal_map>
+                                </metal>
+                            </pbr>
+                        </material>
+                    </visual>
+                </link>
+
+                <link name="bottom_right">
+                    <pose>2.0 -4.3 0.0 0 0 -1.5708</pose>
+                    <collision name='bottom_right_collision'>
+                        <pose>0.0 0.0 0.3 0 0 -1.5708</pose>
+                            <geometry>
+                                <box>
+                                    <size>4.0 0.6 0.6</size>
+                                </box>
+                            </geometry>
+                        <max_contacts>10</max_contacts>
+                        <surface>
+                            <bounce/>
+                            <friction>
+                            <ode/>
+                            </friction>
+                            <contact>
+                            <ode/>
+                            </contact>
+                        </surface>
+                    </collision>
+
+                    <visual name='bottom_right_mesh'>
+                        <pose>0.0 0.0 0.0 0 0 -1.5708</pose>
+                        <geometry>
+                        <mesh>
+                            <uri>model://arena_a_frame/meshes/MCR2_arena_side.stl</uri>
+                        </mesh>
+                        </geometry>
+                        <material>
+                            <ambient>1 1 1 1</ambient>
+                            <diffuse>1 1 1 1</diffuse>
+                            <specular>1 1 1 1</specular>
+                        </material>
+                    </visual>
+
+                <visual name='bottom_right_mcr2_logo'>
+                        <pose>-0.07509 0.0 0.3759 0.785398 0.0 -1.5708</pose>
+                        <geometry>
+                            <plane>
+                                    <normal>0 0 1</normal>
+                                    <size>4.0 0.636396</size>
+                            </plane>
+                        </geometry>
+                        <material>
+                            <ambient>1.0 1.0 1.0 1</ambient>
+                            <diffuse>1.0 1.0 1.0 1</diffuse>
+                            <specular>1.0 1.0 1.0 1</specular>
+                            <pbr>
+                                <metal>
+                                <albedo_map>model://arena_a_frame/materials/textures/mcr2_banner.png</albedo_map>
+                                <normal_map>model://arena_a_frame/materials/textures/mcr2_banner.png</normal_map>
+                                </metal>
+                            </pbr>
+                        </material>
+                    </visual>
+                </link>
+
+
+                <link name="bottom_left">
+                    <pose>-2.0 -4.3 0.0 0 0 -1.5708</pose>
+                    <collision name='bottom_left_collision'>
+                        <pose>0.0 0.0 0.3 0 0 -1.5708</pose>
+                            <geometry>
+                                <box>
+                                    <size>4.0 0.6 0.6</size>
+                                </box>
+                            </geometry>
+                        <max_contacts>10</max_contacts>
+                        <surface>
+                            <bounce/>
+                            <friction>
+                            <ode/>
+                            </friction>
+                            <contact>
+                            <ode/>
+                            </contact>
+                        </surface>
+                    </collision>
+
+                    <visual name='bottom_left_mesh'>
+                        <pose>0.0 0.0 0.0 0 0 -1.5708</pose>
+                        <geometry>
+                        <mesh>
+                            <uri>model://arena_a_frame/meshes/MCR2_arena_side.stl</uri>
+                        </mesh>
+                        </geometry>
+                        <material>
+                            <ambient>1 1 1 1</ambient>
+                            <diffuse>1 1 1 1</diffuse>
+                            <specular>1 1 1 1</specular>
+                        </material> 
+                    </visual>
+
+                <visual name='bottom_left_mcr2_logo'>
+                        <pose>-0.07509 0.0 0.3759 0.785398 0.0 -1.5708</pose>
+                        <geometry>
+                            <plane>
+                                    <normal>0 0 1</normal>
+                                    <size>4.0 0.636396</size>
+                            </plane>
+                        </geometry>
+                        <material>
+                            <ambient>1.0 1.0 1.0 1</ambient>
+                            <diffuse>1.0 1.0 1.0 1</diffuse>
+                            <specular>1.0 1.0 1.0 1</specular>
+                            <pbr>
+                                <metal>
+                                <albedo_map>model://arena_a_frame/materials/textures/mcr2_banner.png</albedo_map>
+                                <normal_map>model://arena_a_frame/materials/textures/mcr2_banner.png</normal_map>
+                                </metal>
+                            </pbr>
+                        </material>
+                    </visual>
+                </link>
+
+                <link name="top_right">
+                    <pose>2.0 4.3 0.0 0 0 1.5708</pose>
+                    <collision name='top_right_collision'>
+                        <pose>0.0 0.0 0.3 0 0 -1.5708</pose>
+                            <geometry>
+                                <box>
+                                    <size>4.0 0.6 0.6</size>
+                                </box>
+                            </geometry>
+                        <max_contacts>10</max_contacts>
+                        <surface>
+                            <bounce/>
+                            <friction>
+                            <ode/>
+                            </friction>
+                            <contact>
+                            <ode/>
+                            </contact>
+                        </surface>
+                    </collision>
+
+                    <visual name='top_right_mesh'>
+                        <pose>0.0 0.0 0.0 0 0 -1.5708</pose>
+                        <geometry>
+                        <mesh>
+                            <uri>model://arena_a_frame/meshes/MCR2_arena_side.stl</uri>
+                        </mesh>
+                        </geometry>
+                        <material>
+                            <ambient>1 1 1 1</ambient>
+                            <diffuse>1 1 1 1</diffuse>
+                            <specular>1 1 1 1</specular>
+                        </material>
+                    </visual>
+
+                <visual name='top_right_mcr2_logo'>
+                        <pose>-0.07509 0.0 0.3759 0.785398 0.0 -1.5708</pose>
+                        <geometry>
+                            <plane>
+                                    <normal>0 0 1</normal>
+                                    <size>4.0 0.636396</size>
+                            </plane>
+                        </geometry>
+                        <material>
+                            <ambient>1.0 1.0 1.0 1</ambient>
+                            <diffuse>1.0 1.0 1.0 1</diffuse>
+                            <specular>1.0 1.0 1.0 1</specular>
+                            <pbr>
+                                <metal>
+                                <albedo_map>model://arena_a_frame/materials/textures/mcr2_banner.png</albedo_map>
+                                <normal_map>model://arena_a_frame/materials/textures/mcr2_banner.png</normal_map>
+                                </metal>
+                            </pbr>
+                        </material>
+                    </visual>
+                </link>
+
+
+                <link name="top_left">
+                    <pose>-2.0 4.3 0.0 0 0 1.5708</pose>
+                    <collision name='top_left_collision'>
+                        <pose>0.0 0.0 0.3 0 0 -1.5708</pose>
+                            <geometry>
+                                <box>
+                                    <size>4.0 0.6 0.6</size>
+                                </box>
+                            </geometry>
+                        <max_contacts>10</max_contacts>
+                        <surface>
+                            <bounce/>
+                            <friction>
+                            <ode/>
+                            </friction>
+                            <contact>
+                            <ode/>
+                            </contact>
+                        </surface>
+                    </collision>
+
+                    <visual name='top_left_mesh'>
+                        <pose>0.0 0.0 0.0 0 0 -1.5708</pose>
+                        <geometry>
+                        <mesh>
+                            <uri>model://arena_a_frame/meshes/MCR2_arena_side.stl</uri>
+                        </mesh>
+                        </geometry>
+                        <material>
+                            <ambient>1 1 1 1</ambient>
+                            <diffuse>1 1 1 1</diffuse>
+                            <specular>1 1 1 1</specular>
+                        </material>
+                    </visual>
+
+                <visual name='top_left_mcr2_logo'>
+                        <pose>-0.07509 0.0 0.3759 0.785398 0.0 -1.5708</pose>
+                        <geometry>
+                            <plane>
+                                    <normal>0 0 1</normal>
+                                    <size>4.0 0.636396</size>
+                            </plane>
+                        </geometry>
+                        <material>
+                            <ambient>1.0 1.0 1.0 1</ambient>
+                            <diffuse>1.0 1.0 1.0 1</diffuse>
+                            <specular>1.0 1.0 1.0 1</specular>
+                            <pbr>
+                                <metal>
+                                <albedo_map>model://arena_a_frame/materials/textures/mcr2_banner.png</albedo_map>
+                                <normal_map>model://arena_a_frame/materials/textures/mcr2_banner.png</normal_map>
+                                </metal>
+                            </pbr>
+                        </material>
+                    </visual>
+                </link>
+        </model>
+    </sdf>

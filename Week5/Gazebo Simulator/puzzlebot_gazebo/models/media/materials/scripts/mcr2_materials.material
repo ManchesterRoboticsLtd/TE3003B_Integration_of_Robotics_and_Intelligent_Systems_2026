@@ -1,0 +1,266 @@
+material mcr2_materials/mcr2_logo
+{
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture mcr2_logo_black.png
+      }
+    }
+  }
+}
+
+material mcr2_materials/mcr2_logo
+{
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture mcr2_logo_white.png
+      }
+    }
+  }
+}
+
+material mcr2_materials/puzzlebot_logo
+{
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture puzzlebot_logo.png
+      }
+    }
+  }
+}
+
+material mcr2_materials/puzzlebot_logo_white
+{
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture puzzlebot_logo_white.png
+      }
+    }
+  }
+}
+
+material mcr2_materials/puzzlebot_logo_wood
+{
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture puzzlebot_wood_6.png
+      }
+    }
+  }
+}
+
+material mcr2_materials/WoodFloor
+{
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture wood_floor.jpg
+      }
+    }
+  }
+}
+
+
+material mcr2_materials/banner
+{
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture mcr2_banner.png
+      }
+    }
+  }
+}
+
+material mcr2_materials/aruco_marker0
+{
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture aruco_markers/marker0.png
+      }
+    }
+  }
+}
+
+material mcr2_materials/aruco_marker1
+{
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture aruco_markers/marker1.png
+      }
+    }
+  }
+}
+
+material mcr2_materials/aruco_marker2
+{
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture aruco_markers/marker2.png
+      }
+    }
+  }
+}
+
+material mcr2_materials/aruco_marker3
+{
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture aruco_markers/marker3.png
+      }
+    }
+  }
+}
+
+material mcr2_materials/aruco_marker4
+{
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture aruco_markers/marker4.png
+      }
+    }
+  }
+}
+
+material mcr2_materials/aruco_marker5
+{
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture aruco_markers/marker5.png
+      }
+    }
+  }
+}
+
+material mcr2_materials/office_floor
+{
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture puzzlebot_wood_7.png
+      }
+    }
+  }
+}
+
+material mcr2_materials/mcr2_goal_1
+{
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture mcr2_goal_1.png
+      }
+    }
+  }
+}
+
+material mcr2_materials/mcr2_goal_2
+{
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture mcr2_goal_2.png
+      }
+    }
+  }
+}
+
+material mcr2_materials/mcr2_goal_3
+{
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture mcr2_goal_3.png
+      }
+    }
+  }
+}
+
+material mcr2_materials/mcr2_goal_4
+{
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture mcr2_goal_4.png
+      }
+    }
+  }
+}
+
+material mcr2_materials/mcr2_goal_5
+{
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture mcr2_goal_5.png
+      }
+    }
+  }
+}

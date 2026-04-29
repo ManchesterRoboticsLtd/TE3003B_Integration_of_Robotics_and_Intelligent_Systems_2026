@@ -1,0 +1,50 @@
+<?xml version="1.0" ?>
+<sdf version="1.9">
+    <model name="puzzlebot_base">
+        <static>true</static>
+        <link name="link">
+            <collision name="collision">
+                <geometry>
+                    <plane>
+                        <normal>0 0 1</normal>
+                        <size>10.0 10.0</size>
+                    </plane>
+                </geometry>
+                <surface>
+                    <contact>
+                        <collide_bitmask>0xffff</collide_bitmask>
+                    </contact>
+                    <friction>
+                        <ode>
+                            <mu>100</mu>
+                            <mu2>50</mu2>
+                        </ode>
+                    </friction>
+                </surface>
+            </collision>
+
+            <visual name="puzzlebot_visual">
+                <pose>0 0 0.001 0 0 0</pose>
+                <cast_shadows>false</cast_shadows>
+                <geometry>
+                    <plane>
+                        <normal>0 0 1</normal>
+                        <size>8.0 8.0</size>
+                    </plane>
+                </geometry>
+
+                <material>
+                    <ambient>0.8 0.8 0.8 1</ambient>
+                    <diffuse>0.8 0.8 0.8 1</diffuse>
+                    <specular>1 0.8 0.8 1</specular>
+                    <pbr>
+                        <metal>
+                        <albedo_map>model://puzzlebot_base/materials/textures/puzzlebot_wood_6.png</albedo_map>
+                        <normal_map>model://puzzlebot_base/materials/textures/puzzlebot_wood_6.png</normal_map>
+                        </metal>
+                    </pbr>
+                </material>
+            </visual>
+        </link>
+    </model>
+</sdf>

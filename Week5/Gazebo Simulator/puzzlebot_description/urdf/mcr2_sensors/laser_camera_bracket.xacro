@@ -1,0 +1,254 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:property name="M_PI" value="3.1415926535897931" />
+
+  <xacro:macro name="laser_camera_sensor" params="
+    prefix:=''
+    camera_name:='cam_1'
+    parent:='base_link'
+    tof_frame:='tof_link'
+    camera_frame:= 'camera_link_optical'
+    mesh_file:='file://$(find puzzlebot_description)/meshes/sensors/Laser_Camera_Bracket.stl'
+    
+    camera_base_mass:='0.035'
+    camera_base_length:='0.046'
+    camera_base_width:='0.030'
+    camera_base_height:='0.045'
+
+    camera_base_inertia_pos_x:='0.018'
+    camera_base_inertia_pos_y:='0.0'
+    camera_base_inertia_pos_z:='0.005'
+    camera_base_inertia_pos_r:='0.0'
+    camera_base_inertia_pos_p:='0.0'
+    camera_base_inertia_pos_w:='0.0'
+
+    camera_base_collision_pos_x:='0.018'
+    camera_base_collision_pos_y:='0.0'
+    camera_base_collision_pos_z:='0.005'
+    camera_base_collision_pos_r:='0.0'
+    camera_base_collision_pos_p:='0.0'
+    camera_base_collision_pos_w:='0.0'
+
+    camera_base_mesh_pos_x:='0.0'
+    camera_base_mesh_pos_y:='0.0'
+    camera_base_mesh_pos_z:='0.0'
+    camera_base_mesh_pos_r:='0.0'
+    camera_base_mesh_pos_p:='0.0'
+    camera_base_mesh_pos_w:='0.0'
+
+    camera_base_pos_x:='0.104'
+    camera_base_pos_y:='0.00'
+    camera_base_pos_z:='0.022'
+    camera_base_pos_r:='0.0'
+    camera_base_pos_p:='0.0'
+    camera_base_pos_w:='0.0'
+
+    camera_pos_x:='0.0201'
+    camera_pos_y:='0.00'
+    camera_pos_z:='0.045'
+    camera_pos_r:='0.0'
+    camera_pos_p:='0.0'
+    camera_pos_w:='0.0'
+
+    tof_pos_x:='0.04'
+    tof_pos_y:='0.00'
+    tof_pos_z:='0.0'
+    tof_pos_r:='0.0'
+    tof_pos_p:='0.0'
+    tof_pos_w:='0.0'
+
+    update_rate:='10'
+    ray_count:='90'
+    min_angle:='-0.707'
+    max_angle:='0.707'
+    min_range:='0.08'
+    max_range:='10.0'
+    range_resolution:='0.01'
+    topic_name:='tof_sensor'
+    always_on:='true'
+    visualize:='false'
+    
+    ">
+
+
+    <link name="${prefix}bracket_base_link">
+        <visual>
+            <origin xyz="${camera_base_mesh_pos_x} ${camera_base_mesh_pos_y} ${camera_base_mesh_pos_z}" rpy="${camera_base_mesh_pos_r} ${camera_base_mesh_pos_p} ${camera_base_mesh_pos_w}"/>
+            <geometry>
+                <mesh filename="${mesh_file}"/>
+            </geometry>
+            <material name="grey"/>
+        </visual>
+  
+        <collision>
+            <origin xyz="${camera_base_collision_pos_x} ${camera_base_collision_pos_y} ${camera_base_collision_pos_z}" rpy="${camera_base_collision_pos_r} ${camera_base_collision_pos_p} ${camera_base_collision_pos_w}"/>
+            <geometry>
+                <box size="${camera_base_length} ${camera_base_width} ${camera_base_height}"/>
+            </geometry>
+        </collision>
+
+        <inertial>
+            <origin xyz="${camera_base_inertia_pos_x} ${camera_base_inertia_pos_y} ${camera_base_inertia_pos_z}" rpy="${camera_base_inertia_pos_r} ${camera_base_inertia_pos_p} ${camera_base_inertia_pos_w}"/>
+            <mass value="${camera_base_mass}"/>
+            <xacro:box_inertia mass="${camera_base_mass}" x="${camera_base_length}" y="${camera_base_width}" z="${camera_base_height}" />
+        </inertial>
+    </link>
+
+    <link name="${prefix}camera_link">
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <box size="0.005 0.005 0.005"/>
+            </geometry>
+        </collision>
+
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="1e-5"/>
+            <xacro:box_inertia mass="1e-5" x="0.005" y="0.005" z="0.005" />
+        </inertial>
+    </link>
+
+    <link name="${prefix}camera_link_optical">
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <box size="0.005 0.005 0.005"/>
+            </geometry>
+        </collision>
+
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="1e-5"/>
+            <xacro:box_inertia mass="1e-5" x="0.005" y="0.005" z="0.005" />
+        </inertial>
+    </link>
+
+    <link name="${prefix}tof_link">
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <box size="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="1e-5"/>
+            <xacro:box_inertia mass="1e-5" x="0.005" y="0.005" z="0.005" />
+        </inertial>
+    </link>
+
+    <!--JOINTS-->
+
+    <joint name="${prefix}camera_base_joint" type="fixed">
+        <parent link="${prefix}${parent}"/>
+        <child link="${prefix}bracket_base_link"/>
+        <origin xyz="${camera_base_pos_x} ${camera_base_pos_y} ${camera_base_pos_z}" rpy="${camera_base_pos_r} ${camera_base_pos_p} ${camera_base_pos_w}"/>
+    </joint>
+
+    <joint name="${prefix}camera_joint" type="fixed">
+        <parent link="${prefix}bracket_base_link"/>
+        <child link="${prefix}camera_link"/>
+        <origin xyz="${camera_pos_x} ${camera_pos_y} ${camera_pos_z}" rpy="${camera_pos_r} ${camera_pos_p} ${camera_pos_w}"/>
+    </joint>
+
+    <joint name="${prefix}camera_optical_joint" type="fixed">
+        <parent link="${prefix}camera_link"/>
+        <child link="${prefix}camera_link_optical"/>
+        <origin xyz="0 0 0" rpy="${-M_PI/2} 0.0 ${-M_PI/2}"/>
+    </joint>
+
+    <joint name="${prefix}tof_joint" type="fixed">
+        <parent link="${prefix}bracket_base_link"/>
+        <child link="${prefix}tof_link"/>
+        <origin xyz="${tof_pos_x} ${tof_pos_y} ${tof_pos_z}" rpy="${tof_pos_r} ${tof_pos_p} ${tof_pos_w}"/>
+    </joint>
+
+    <!--<gazebo reference='${prefix}camera_base_joint'>
+    <preserveFixedJoint>true</preserveFixedJoint>
+    </gazebo>
+
+    <gazebo reference='${prefix}camera_joint'>
+    <preserveFixedJoint>true</preserveFixedJoint>
+    </gazebo>
+
+    <gazebo reference='${prefix}tof_joint'>
+    <preserveFixedJoint>true</preserveFixedJoint>
+    </gazebo>
+    
+    <gazebo reference='${prefix}camera_optical_joint'>
+    <preserveFixedJoint>true</preserveFixedJoint>
+    </gazebo>-->
+
+    <gazebo reference="${prefix}camera_link"> 
+            <sensor type="camera" name="${prefix}camera_sensor">
+                <pose>0 0 0 0 0 0</pose>
+                <topic>${prefix}camera</topic>
+                <camera>
+                    <camera_info_topic>${prefix}camera_info</camera_info_topic>"
+                    <horizontal_fov>1.089</horizontal_fov>
+                    <image>
+                        <width>640</width>
+                        <height>480</height>
+                        <format>R8G8B8</format>
+                    </image>
+                    <clip>
+                        <near>0.1</near>
+                        <far>8.0</far>
+                    </clip>
+                    <noise>
+                        <type>gaussian</type>
+                        <mean>0.0</mean>
+                        <stddev>0.007</stddev>
+                    </noise>
+                </camera>
+                <always_on>1</always_on>
+                <gz_frame_id>${prefix}${camera_frame}</gz_frame_id>
+                <update_rate>10</update_rate>
+                <visualize>false</visualize>
+            </sensor>
+    </gazebo>
+
+
+   <gazebo reference="${prefix}tof_link">
+        <sensor name="${prefix}tof_sensor" type="gpu_lidar">
+            <topic>${prefix}tof_scan</topic>
+            <pose> 0 0 0 0 0 0 </pose>
+            <update_rate>${update_rate}</update_rate>
+            <always_on>${always_on}</always_on>
+            <visualize>${visualize}</visualize>
+            <gz_frame_id>${prefix}${tof_frame}</gz_frame_id>
+            <ray>
+            <scan>
+                <horizontal>
+                <samples>${ray_count}</samples>
+                <resolution>1</resolution>
+                <min_angle>${min_angle}</min_angle>
+                <max_angle>${max_angle}</max_angle>
+                </horizontal>
+                <vertical>
+                <samples>1</samples>
+                <resolution>0.01</resolution>
+                <min_angle>0</min_angle>
+                <max_angle>0</max_angle>
+                </vertical>
+            </scan>
+            <range>
+                <min>${min_range}</min>
+                <max>${max_range}</max>
+                <resolution>${range_resolution}</resolution>
+            </range>
+            <noise>
+                <type>gaussian</type>
+                <mean>0.0</mean>
+                <stddev>0.01</stddev>
+            </noise>
+            </ray>
+        </sensor>
+    </gazebo>
+
+
+    </xacro:macro>
+</robot>

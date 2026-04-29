@@ -1,0 +1,29 @@
+<?xml version="1.0" ?>
+    <sdf version="1.5">
+        <model name="goal_marker_3">
+            <static>true</static>
+                <link name="link">
+                    <pose>0 0 0 0 0 0</pose>
+                    <visual name="visual">
+                        <cast_shadows>false</cast_shadows>
+                        <geometry>
+                            <plane>
+                                    <normal>0 0 1</normal>
+                                    <size>0.4 0.4</size>
+                            </plane>
+                        </geometry>
+                        <material>
+                            <ambient>1 1 1 1</ambient>
+                            <diffuse>1 1 1 1</diffuse>
+                            <specular>1 1 1 1</specular>
+                            <pbr>
+                                <metal>
+                                <albedo_map>model://goal_marker_3/materials/textures/mcr2_goal_3.png</albedo_map>
+                                <normal_map>model://goal_marker_3/materials/textures/mcr2_goal_3.png</normal_map>
+                                </metal>
+                            </pbr>
+                        </material>
+                    </visual>
+                </link>
+        </model>
+    </sdf>

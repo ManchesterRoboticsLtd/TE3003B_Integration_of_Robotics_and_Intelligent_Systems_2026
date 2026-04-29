@@ -1,0 +1,199 @@
+<?xml  version="1.0" ?>
+<sdf version="1.5">
+
+    <model name='aruco_box'>
+        <pose>0 0 0 0 0 0</pose>
+        <link name='link'>
+            <inertial>
+                <pose>0 0 0 0 -0 0</pose>
+                <mass>0.281</mass>
+                <inertia>
+                    <ixx>0.0006167</ixx>
+                    <ixy>0</ixy>
+                    <ixz>0</ixz>
+                    <iyy>0.0006167</iyy>
+                    <iyz>0</iyz>
+                    <izz>0.0006167</izz>
+                </inertia>
+            </inertial>
+            <collision name="collision">
+                <geometry>
+                    <box>
+                        <size>0.1 0.1 0.1</size>
+                    </box>
+                </geometry>
+                <surface>
+                    <contact>
+                        <ode>
+                            <max_vel>1</max_vel>
+                            <min_depth>0.001</min_depth>
+                            <kp>1000000</kp>
+                            <kd>10</kd>
+                        </ode>
+                    </contact>
+                    <friction>
+                        <ode>
+                            <mu>1</mu>
+                            <mu2>1</mu2>
+                        </ode>
+                    </friction>
+                </surface>
+            </collision>
+
+            <visual name='box_visual'>
+                <cast_shadows>false</cast_shadows>
+                    <geometry>
+                        <box>
+                            <size>0.1 0.1 0.1</size>
+                        </box>
+                    </geometry>
+                <material>
+                    <ambient>1 1 1 1</ambient>
+                    <diffuse>1 1 1 1</diffuse>
+                    <specular>1 1 1 1</specular>
+                    <emissive>0.6 0.6 0.6 1</emissive>
+                </material>
+            </visual>
+
+
+            <visual name='aruco_visual1'>
+                <pose>0.051 0.0 0.0 0.0 1.5708 0.0</pose>
+                <cast_shadows>0</cast_shadows>
+                <geometry>
+                    <plane>
+                        <normal>0 0 1</normal>
+                        <size>0.0937 0.0937</size>
+                    </plane>
+                </geometry>
+                <material>
+                    <pbr>
+                        <metal>
+                            <albedo_map>model://aruco_box/materials/textures/marker0.png</albedo_map>
+                            <normal_map>model://aruco_box/materials/textures/marker0.png</normal_map>
+                        </metal>
+                    </pbr>
+                    <ambient>1 1 1 1</ambient>
+                    <diffuse>1 1 1 1</diffuse>
+                    <specular>1 1 1 1</specular>
+                    <emissive>0.0 0.0 0.0 1</emissive>
+                </material>
+            </visual>
+
+            <visual name='aruco_visual2'>
+                <pose>-0.051 0.0 0.0 0.0 -1.5708 0.0</pose>
+                <cast_shadows>0</cast_shadows>
+                <geometry>
+                    <plane>
+                        <normal>0 0 1</normal>
+                        <size>0.0937 0.0937</size>
+                    </plane>
+                </geometry>
+                <material>
+                    <pbr>
+                        <metal>
+                            <albedo_map>model://aruco_box/materials/textures/marker1.png</albedo_map>
+                            <normal_map>model://aruco_box/materials/textures/marker1.png</normal_map>
+                        </metal>
+                    </pbr>
+                    <ambient>1 1 1 1</ambient>
+                    <diffuse>1 1 1 1</diffuse>
+                    <specular>1 1 1 1</specular>
+                    <emissive>0.0 0.0 0.0 1</emissive>
+                </material>
+            </visual>
+
+            <visual name='aruco_visual3'>
+                <pose>0.0 0.051 0.0 -1.5708 0.0 0.0</pose>
+                <cast_shadows>0</cast_shadows>
+                <geometry>
+                    <plane>
+                        <normal>0 0 1</normal>
+                        <size>0.0937 0.0937</size>
+                    </plane>
+                </geometry>
+                <material>
+                    <pbr>
+                        <metal>
+                            <albedo_map>model://aruco_box/materials/textures/marker2.png</albedo_map>
+                            <normal_map>model://aruco_box/materials/textures/marker2.png</normal_map>
+                        </metal>
+                    </pbr>
+                    <ambient>1 1 1 1</ambient>
+                    <diffuse>1 1 1 1</diffuse>
+                    <specular>1 1 1 1</specular>
+                    <emissive>0.0 0.0 0.0 1</emissive>
+                </material>
+            </visual>
+
+            <visual name='aruco_visual4'>
+                <pose>0.0 -0.051 0.0 1.5708 0.0 0.0</pose>
+                <cast_shadows>0</cast_shadows>
+                <geometry>
+                    <plane>
+                        <normal>0 0 1</normal>
+                        <size>0.0937 0.0937</size>
+                    </plane>
+                </geometry>
+                <material>
+                    <pbr>
+                        <metal>
+                            <albedo_map>model://aruco_box/materials/textures/marker3.png</albedo_map>
+                            <normal_map>model://aruco_box/materials/textures/marker3.png</normal_map>
+                        </metal>
+                    </pbr>
+                    <ambient>1 1 1 1</ambient>
+                    <diffuse>1 1 1 1</diffuse>
+                    <specular>1 1 1 1</specular>
+                    <emissive>0.0 0.0 0.0 1</emissive>
+                </material>
+            </visual>
+
+            <visual name='aruco_visual5'>
+                <pose>0.0 0.0 0.051 0.0 0.0 0.0</pose>
+                <cast_shadows>0</cast_shadows>
+                <geometry>
+                    <plane>
+                        <normal>0 0 1</normal>
+                        <size>0.0937 0.0937</size>
+                    </plane>
+                </geometry>
+                <material>
+                    <pbr>
+                        <metal>
+                            <albedo_map>model://aruco_box/materials/textures/marker4.png</albedo_map>
+                            <normal_map>model://aruco_box/materials/textures/marker4.png</normal_map>
+                        </metal>
+                    </pbr>
+                    <ambient>1 1 1 1</ambient>
+                    <diffuse>1 1 1 1</diffuse>
+                    <specular>1 1 1 1</specular>
+                    <emissive>0.0 0.0 0.0 1</emissive>
+                </material>
+            </visual>
+
+            <visual name='aruco_visual6'>
+                <pose>0.0 0.0 -0.051 0.0 -3.141592654 0.0</pose>
+                <cast_shadows>0</cast_shadows>
+                <geometry>
+                    <plane>
+                        <normal>0 0 1</normal>
+                        <size>0.0937 0.0937</size>
+                    </plane>
+                </geometry>
+                <material>
+                    <pbr>
+                        <metal>
+                            <albedo_map>model://aruco_box/materials/textures/marker5.png</albedo_map>
+                            <normal_map>model://aruco_box/materials/textures/marker5.png</normal_map>
+                        </metal>
+                    </pbr>
+                    <ambient>1 1 1 1</ambient>
+                    <diffuse>1 1 1 1</diffuse>
+                    <specular>1 1 1 1</specular>
+                    <emissive>0.0 0.0 0.0 1</emissive>
+                </material>
+            </visual>
+
+        </link>
+    </model>
+</sdf>

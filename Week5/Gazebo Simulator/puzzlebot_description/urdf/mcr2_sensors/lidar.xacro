@@ -1,0 +1,170 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:property name="M_PI" value="3.1415926535897931" />
+
+  <xacro:macro name="rpi_lidar_sensor" params="
+    prefix:=''
+    lidar_frame:='laser_frame'
+    parent:='base_link'
+    mesh_file:='file://$(find puzzlebot_description)/meshes/sensors/RPLidar.stl'
+
+    lidar_base_mass:='0.1755'
+    lidar_base_length:='0.08'
+    lidar_base_width:='0.07'
+    lidar_base_height:='0.05'
+
+    lidar_base_inertia_pos_x:='0.0'
+    lidar_base_inertia_pos_y:='0.0'
+    lidar_base_inertia_pos_z:='0.021'
+    lidar_base_inertia_pos_r:='0.0'
+    lidar_base_inertia_pos_p:='0.0'
+    lidar_base_inertia_pos_w:='0.0'
+
+    lidar_base_collision_pos_x:='0.0'
+    lidar_base_collision_pos_y:='0.0'
+    lidar_base_collision_pos_z:='0.021'
+    lidar_base_collision_pos_r:='0.0'
+    lidar_base_collision_pos_p:='0.0'
+    lidar_base_collision_pos_w:='0.0'
+
+    lidar_base_mesh_pos_x:='0.0'
+    lidar_base_mesh_pos_y:='0.0'
+    lidar_base_mesh_pos_z:='0.025'
+    lidar_base_mesh_pos_r:='0.0'
+    lidar_base_mesh_pos_p:='0.0'
+    lidar_base_mesh_pos_w:='0.0'
+
+    lidar_base_pos_x:='0.0425'
+    lidar_base_pos_y:='0.00'
+    lidar_base_pos_z:='0.070'
+    lidar_base_pos_r:='0.0'
+    lidar_base_pos_p:='0.0'
+    lidar_base_pos_w:='0.0'
+
+    lidar_pos_x:='0.0'
+    lidar_pos_y:='0.00'
+    lidar_pos_z:='0.035'
+    lidar_pos_r:='0.0'
+    lidar_pos_p:='0.0'
+    lidar_pos_w:='0.0'
+    
+    update_rate:='10'
+    ray_count:='360'
+    min_angle:='0.0'
+    max_angle:='6.283185'
+    min_range:='0.15'
+    max_range:='12.0'
+    range_resolution:='0.017'
+    topic_name:='scan'
+    always_on:='true'
+    visualize:='false'
+    ">
+
+    <link name="${prefix}lidar_base_link">
+        <visual>
+            <origin xyz="${lidar_base_mesh_pos_x} ${lidar_base_mesh_pos_y} ${lidar_base_mesh_pos_z}" rpy="${lidar_base_mesh_pos_r} ${lidar_base_mesh_pos_p} ${lidar_base_mesh_pos_w}"/>
+            <geometry>
+                <mesh filename="${mesh_file}"/>
+            </geometry>
+            <material name="grey"/>
+        </visual>
+  
+        <collision>
+            <origin xyz="${lidar_base_collision_pos_x} ${lidar_base_collision_pos_y} ${lidar_base_collision_pos_z}" rpy="${lidar_base_collision_pos_r} ${lidar_base_collision_pos_p} ${lidar_base_collision_pos_w}"/>
+            <geometry>
+                <box size="${lidar_base_length} ${lidar_base_width} ${lidar_base_height}"/>
+            </geometry>
+        </collision>
+
+        <inertial>
+            <origin xyz="${lidar_base_inertia_pos_x} ${lidar_base_inertia_pos_y} ${lidar_base_inertia_pos_z}" rpy="${lidar_base_inertia_pos_r} ${lidar_base_inertia_pos_p} ${lidar_base_inertia_pos_w}"/>
+            <mass value="${lidar_base_mass}"/>
+            <xacro:box_inertia mass="${lidar_base_mass}" x="${lidar_base_length}" y="${lidar_base_width}" z="${lidar_base_height}" />
+        </inertial>
+    </link>
+
+    <link name="${prefix}laser_frame">
+
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <box size="0.005 0.005 0.005"/> <!-- Box shape for lidar -->
+            </geometry>
+            <material name="grey"/>
+        </visual>
+
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <box size="0.005 0.005 0.005"/>
+            </geometry>
+        </collision>
+
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="1e-5"/>
+            <xacro:box_inertia mass="1e-5" x="0.005" y="0.005" z="0.005" />
+        </inertial>
+    </link>
+
+
+    <joint name="${prefix}lidar_base_joint" type="fixed">
+        <parent link="${prefix}${parent}"/>
+        <child link="${prefix}lidar_base_link"/>
+        <origin xyz="${lidar_base_pos_x} ${lidar_base_pos_y} ${lidar_base_pos_z}" rpy="${lidar_base_pos_r} ${lidar_base_pos_p} ${lidar_base_pos_w}"/>
+    </joint>
+
+    <joint name="${prefix}lidar_joint" type="fixed">
+        <parent link="${prefix}lidar_base_link"/>
+        <child link="${prefix}laser_frame"/>
+        <origin xyz="${lidar_pos_x} ${lidar_pos_y} ${lidar_pos_z}" rpy="${lidar_pos_r} ${lidar_pos_p} ${lidar_pos_w}"/>
+    </joint>
+
+    <!--<gazebo reference='${prefix}lidar_base_joint'>
+    <preserveFixedJoint>true</preserveFixedJoint>
+    </gazebo>
+
+    <gazebo reference='${prefix}lidar_joint'>
+    <preserveFixedJoint>true</preserveFixedJoint>
+    </gazebo>-->
+
+    <gazebo reference="${prefix}laser_frame">
+        <sensor name="${prefix}lidar_sensor" type="gpu_lidar">
+            <topic>${prefix}${topic_name}</topic>
+            <gz_frame_id>${prefix}${lidar_frame}</gz_frame_id>
+            <pose> 0 0 0 0 0 0 </pose>
+            <update_rate>${update_rate}</update_rate>
+            <always_on>${always_on}</always_on>
+            <visualize>${visualize}</visualize>
+            <ray>
+                <scan>
+                    <horizontal>
+                        <samples>${ray_count}</samples>
+                        <resolution>1</resolution>
+                        <min_angle>${min_angle}</min_angle>
+                        <max_angle>${max_angle}</max_angle>
+                    </horizontal>
+                    <vertical>
+                        <samples>1</samples>
+                        <resolution>0.01</resolution>
+                        <min_angle>0</min_angle>
+                        <max_angle>0</max_angle>
+                    </vertical>
+                </scan>
+                <range>
+                    <min>${min_range}</min>
+                    <max>${max_range}</max>
+                    <resolution>${range_resolution}</resolution>
+                </range>
+                <noise>
+                    <type>gaussian</type>
+                    <mean>0.0</mean>
+                    <stddev>0.01</stddev>
+                </noise>
+            </ray>
+        </sensor>
+    </gazebo>
+
+    </xacro:macro>
+</robot>

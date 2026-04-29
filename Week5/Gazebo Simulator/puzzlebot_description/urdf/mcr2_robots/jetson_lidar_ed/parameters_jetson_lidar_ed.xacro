@@ -1,0 +1,201 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <!--General parameters-->
+    <xacro:property name="PI" value="3.1415926535897931"/>
+
+    <!--Puzzlebot parameters-->
+        <!--General parameters-->
+            <xacro:property name="wheel_base_distance" value="0.19"/>
+
+    <!--Chassis-->
+        <!--Chassis Inertial/Collision parameters-->
+            <xacro:property name="chassis_mass" value="0.351"/>
+            <xacro:property name="chassis_length" value="0.2"/>
+            <xacro:property name="chassis_width" value="0.16"/>
+            <xacro:property name="chassis_height" value="0.0503"/>
+
+            <xacro:property name="chassis_inertia_pos_x" value="0.00"/>
+            <xacro:property name="chassis_inertia_pos_y" value="0.0"/>
+            <xacro:property name="chassis_inertia_pos_z" value="0.00"/>
+            <xacro:property name="chassis_inertia_pos_r" value="0.00"/>
+            <xacro:property name="chassis_inertia_pos_p" value="0.0"/>
+            <xacro:property name="chassis_inertia_pos_w" value="0.0"/>
+
+            <xacro:property name="chassis_collision_pos_x" value="0.0"/>
+            <xacro:property name="chassis_collision_pos_y" value="0.0"/>
+            <xacro:property name="chassis_collision_pos_z" value="0.0"/>
+            <xacro:property name="chassis_collision_pos_r" value="0.0"/>
+            <xacro:property name="chassis_collision_pos_p" value="0.0"/>
+            <xacro:property name="chassis_collision_pos_w" value="0.0"/>
+
+        <!--Chassis Visual parameters-->
+            <xacro:property name="chassis_mesh_pos_x" value="0.0"/>
+            <xacro:property name="chassis_mesh_pos_y" value="0.0"/>
+            <xacro:property name="chassis_mesh_pos_z" value="0.0"/>
+            <xacro:property name="chassis_mesh_pos_r" value="0.0"/>
+            <xacro:property name="chassis_mesh_pos_p" value="0.0"/>
+            <xacro:property name="chassis_mesh_pos_w" value="0.0"/>
+
+        <!--Chassis Joint parameters-->
+            <xacro:property name="chassis_pos_x" value="0.0"/>
+            <xacro:property name="chassis_pos_y" value="0.0"/>
+            <xacro:property name="chassis_pos_z" value="0.05"/>
+            <xacro:property name="chassis_pos_r" value="0.0"/>
+            <xacro:property name="chassis_pos_p" value="0.0"/>
+            <xacro:property name="chassis_pos_w" value="0.0"/>
+
+    <!--Caster Holder-->
+        <!--Caster Holder Inertial/Collision parameters-->
+            <xacro:property name="casterholder_mass" value="0.007"/>
+            <xacro:property name="casterholder_length" value="0.0175"/>
+            <xacro:property name="casterholder_width" value="0.023"/>
+            <xacro:property name="casterholder_height" value="0.011150"/>
+
+            <xacro:property name="casterholder_inertia_pos_x" value="0.0"/>
+            <xacro:property name="casterholder_inertia_pos_y" value="0.0"/>
+            <xacro:property name="casterholder_inertia_pos_z" value="0.0"/>
+            <xacro:property name="casterholder_inertia_pos_r" value="0.0"/>
+            <xacro:property name="casterholder_inertia_pos_p" value="0.0"/>
+            <xacro:property name="casterholder_inertia_pos_w" value="0.0"/>
+
+            <xacro:property name="casterholder_collision_pos_x" value="0.0"/>
+            <xacro:property name="casterholder_collision_pos_y" value="0.0"/>
+            <xacro:property name="casterholder_collision_pos_z" value="0.0"/>
+            <xacro:property name="casterholder_collision_pos_r" value="0.0"/>
+            <xacro:property name="casterholder_collision_pos_p" value="0.0"/>
+            <xacro:property name="casterholder_collision_pos_w" value="0.0"/>
+
+        <!--Caster Holder Visual parameters-->
+            <xacro:property name="casterholder_mesh_pos_x" value="0.0"/>
+            <xacro:property name="casterholder_mesh_pos_y" value="0.0"/>
+            <xacro:property name="casterholder_mesh_pos_z" value="-0.012"/>
+            <xacro:property name="casterholder_mesh_pos_r" value="0.0"/>
+            <xacro:property name="casterholder_mesh_pos_p" value="0.0"/>
+            <xacro:property name="casterholder_mesh_pos_w" value="0.0"/>
+
+        <!--Caster Holder Joint parameters-->
+            <xacro:property name="casterholder_pos_x" value="-0.095"/>
+            <xacro:property name="casterholder_pos_y" value="0.0"/>
+            <xacro:property name="casterholder_pos_z" value="-0.030725"/>
+            <xacro:property name="casterholder_pos_r" value="0.0"/>
+            <xacro:property name="casterholder_pos_p" value="0.0"/>
+            <xacro:property name="casterholder_pos_w" value="0.0"/>
+
+    <!--Caster Ball-->
+        <!--Caster Ball Inertial/Collision parameters-->
+            <xacro:property name="casterball_mass" value="0.009"/>
+            <xacro:property name="casterball_radius" value="0.0065"/>
+
+            <xacro:property name="casterball_inertia_pos_x" value="0.0"/>
+            <xacro:property name="casterball_inertia_pos_y" value="0.0"/>
+            <xacro:property name="casterball_inertia_pos_z" value="0.0"/>
+            <xacro:property name="casterball_inertia_pos_r" value="0.0"/>
+            <xacro:property name="casterball_inertia_pos_p" value="0.0"/>
+            <xacro:property name="casterball_inertia_pos_w" value="0.0"/>
+
+            <xacro:property name="casterball_collision_pos_x" value="0.0"/>
+            <xacro:property name="casterball_collision_pos_y" value="0.0"/>
+            <xacro:property name="casterball_collision_pos_z" value="0.0"/>
+            <xacro:property name="casterball_collision_pos_r" value="0.0"/>
+            <xacro:property name="casterball_collision_pos_p" value="0.0"/>
+            <xacro:property name="casterball_collision_pos_w" value="0.0"/>
+
+        <!--Caster Ball Visual parameters-->
+            <xacro:property name="casterball_mesh_pos_x" value="0.0"/>
+            <xacro:property name="casterball_mesh_pos_y" value="0.0"/>
+            <xacro:property name="casterball_mesh_pos_z" value="0.0"/>
+            <xacro:property name="casterball_mesh_pos_r" value="0.0"/>
+            <xacro:property name="casterball_mesh_pos_p" value="0.0"/>
+            <xacro:property name="casterball_mesh_pos_w" value="0.0"/>
+
+        <!--Caster Ball Joint parameters-->
+            <xacro:property name="casterball_pos_x" value="0.0"/>
+            <xacro:property name="casterball_pos_y" value="0.0"/>
+            <xacro:property name="casterball_pos_z" value="-0.012538"/>
+            <xacro:property name="casterball_pos_r" value="0.0"/>
+            <xacro:property name="casterball_pos_p" value="0.0"/>
+            <xacro:property name="casterball_pos_w" value="0.0"/>
+
+    <!--Wheel-->
+        <!--Wheel Inertial/Collision parameters-->
+            <xacro:property name="wheel_mass" value="0.027"/>
+            <xacro:property name="wheel_height" value="0.012"/>
+            <xacro:property name="wheel_radius" value="0.05"/>
+
+            <xacro:property name="wheel_inertia_pos_x" value="0.0"/>
+            <xacro:property name="wheel_inertia_pos_y" value="0.0"/>
+            <xacro:property name="wheel_inertia_pos_z" value="0.0"/>
+            <xacro:property name="wheel_inertia_pos_r" value="${PI/2}"/>
+            <xacro:property name="wheel_inertia_pos_p" value="0.0"/>
+            <xacro:property name="wheel_inertia_pos_w" value="0.0"/>
+
+            <xacro:property name="wheel_collision_pos_x" value="0.0"/>
+            <xacro:property name="wheel_collision_pos_y" value="0.0"/>
+            <xacro:property name="wheel_collision_pos_z" value="0.0"/>
+            <xacro:property name="wheel_collision_pos_r" value="${PI/2}"/>
+            <xacro:property name="wheel_collision_pos_p" value="0.0"/>
+            <xacro:property name="wheel_collision_pos_w" value="0.0"/>
+
+        <!--Wheel Visual parameters-->
+            <xacro:property name="wheel_mesh_pos_x" value="0.0"/>
+            <xacro:property name="wheel_mesh_pos_y" value="0.0"/>
+            <xacro:property name="wheel_mesh_pos_z" value="0.0"/>
+            <xacro:property name="wheel_mesh_pos_r" value="${PI/2}"/>
+            <xacro:property name="wheel_mesh_pos_p" value="0.0"/>
+            <xacro:property name="wheel_mesh_pos_w" value="0.0"/>
+
+        <!--Wheel Joint parameters-->
+            <xacro:property name="wheel_pos_x" value="0.052"/>
+            <xacro:property name="wheel_pos_y" value="${wheel_base_distance/2}"/>
+            <xacro:property name="wheel_pos_z" value="0.0"/>
+            <xacro:property name="wheel_pos_r" value="0.0"/>
+            <xacro:property name="wheel_pos_p" value="0.0"/>
+            <xacro:property name="wheel_pos_w" value="0.0"/>
+
+    <!--NVIDIA Jetson-->
+        <!--Jetson Inertial/Collision parameters-->
+            <xacro:property name="jetson_mass" value="0.131"/>
+            <xacro:property name="jetson_length" value="0.079"/>
+            <xacro:property name="jetson_width" value="0.1"/>
+            <xacro:property name="jetson_height" value="0.028271"/>
+            <xacro:property name="jetson_offset" value="0.01"/>
+
+            <xacro:property name="jetson_inertia_pos_x" value="0.0075"/>
+            <xacro:property name="jetson_inertia_pos_y" value="0.00175"/>
+            <xacro:property name="jetson_inertia_pos_z" value="${jetson_offset/2}"/>
+            <xacro:property name="jetson_inertia_pos_r" value="0.0"/>
+            <xacro:property name="jetson_inertia_pos_p" value="0.0"/>
+            <xacro:property name="jetson_inertia_pos_w" value="0.0"/>
+
+            <xacro:property name="jetson_collision_pos_x" value="0.0"/>
+            <xacro:property name="jetson_collision_pos_y" value="0.0"/>
+            <xacro:property name="jetson_collision_pos_z" value="0.0"/>
+            <xacro:property name="jetson_collision_pos_r" value="0.0"/>
+            <xacro:property name="jetson_collision_pos_p" value="0.0"/>
+            <xacro:property name="jetson_collision_pos_w" value="0.0"/>
+
+        <!--jetson Visual parameters-->
+            <xacro:property name="jetson_mesh_pos_x" value="0.0"/>
+            <xacro:property name="jetson_mesh_pos_y" value="0.0"/>
+            <xacro:property name="jetson_mesh_pos_z" value="0.0"/>
+            <xacro:property name="jetson_mesh_pos_r" value="0.0"/>
+            <xacro:property name="jetson_mesh_pos_p" value="0.0"/>
+            <xacro:property name="jetson_mesh_pos_w" value="0.0"/>
+
+        <!--jetson Joint parameters-->
+            <xacro:property name="jetson_pos_x" value="0.035"/>
+            <xacro:property name="jetson_pos_y" value="-0.003"/>
+            <xacro:property name="jetson_pos_z" value="${chassis_height/2}"/>
+            <xacro:property name="jetson_pos_r" value="0.0"/>
+            <xacro:property name="jetson_pos_p" value="0.0"/>
+            <xacro:property name="jetson_pos_w" value="0.0"/>
+
+
+    <!--Meshes -->
+        <xacro:property name="mesh_puzzlebot_chassis"  value="$(find puzzlebot_description)/meshes/bases/Puzzlebot_Jetson_Lidar_Edition_Base.stl" />
+        <xacro:property name="mesh_puzzlebot_wheel"  value="$(find puzzlebot_description)/meshes/wheels/Puzzlebot_Wheel.stl" />
+        <xacro:property name="mesh_puzzlebot_caster"  value="$(find puzzlebot_description)/meshes/wheels/Puzzlebot_Caster_Wheel.stl" /> 
+        <xacro:property name="mesh_puzzlebot_jetson"  value="$(find puzzlebot_description)/meshes/misc/NVIDIA_Jetson.stl" />
+
+</robot>

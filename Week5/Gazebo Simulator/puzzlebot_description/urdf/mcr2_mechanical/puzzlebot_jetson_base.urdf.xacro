@@ -1,0 +1,219 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="puzzlebot_hacker_ed_base">
+
+
+<xacro:macro name="puzzlebot_jetson_ed_base" params="prefix">
+
+    <!-- Dummy link to fix robot chassis -->
+    <link name="${prefix}base_footprint">
+    </link>
+
+    <link name="${prefix}base_link">
+        <visual>
+            <origin xyz="${chassis_mesh_pos_x} ${chassis_mesh_pos_y} ${chassis_mesh_pos_z}" rpy="${chassis_mesh_pos_r} ${chassis_mesh_pos_p} ${chassis_mesh_pos_w}"/>
+            <geometry>
+                <mesh filename="file://${mesh_puzzlebot_chassis}"/>
+            </geometry>
+            <material name="yellow"/>
+        </visual>
+
+        <collision>
+            <origin xyz="${chassis_collision_pos_x} ${chassis_collision_pos_y} ${chassis_collision_pos_z}" rpy="${chassis_collision_pos_r} ${chassis_collision_pos_p} ${chassis_collision_pos_w}"/>
+            <geometry>
+                <box size="${chassis_length} ${chassis_width} ${chassis_height}"/>
+            </geometry>
+        </collision>
+
+        <inertial>
+            <origin xyz="-${chassis_inertia_pos_x} ${chassis_inertia_pos_y} ${chassis_inertia_pos_z}" rpy="${chassis_inertia_pos_r} ${chassis_inertia_pos_p} ${chassis_inertia_pos_w}"/>
+            <mass value="${chassis_mass}"/>
+            <xacro:box_inertia mass="${chassis_mass}" x="${chassis_length}" y="${chassis_width}" z="${chassis_height}" />
+        </inertial>
+    </link>
+
+
+    <link name="${prefix}wheel_left_link">
+        <visual>
+            <origin xyz="${wheel_mesh_pos_x} ${wheel_mesh_pos_y} ${wheel_mesh_pos_z}" rpy="${wheel_mesh_pos_r} ${wheel_mesh_pos_p} ${wheel_mesh_pos_w}" />
+            <geometry>
+                <mesh filename="file://${mesh_puzzlebot_wheel}"/>
+            </geometry>
+            <material name="black"/>
+        </visual>
+
+        <collision>
+            <origin xyz="${wheel_collision_pos_x} ${wheel_collision_pos_y} ${wheel_collision_pos_z}" rpy="${wheel_collision_pos_r} ${wheel_collision_pos_p} ${wheel_collision_pos_w}"/>
+            <geometry>
+                <cylinder length="${wheel_height}" radius="${wheel_radius}" />
+            </geometry>
+        </collision>
+
+        <inertial>
+            <origin xyz="${wheel_inertia_pos_x} ${wheel_inertia_pos_y} ${wheel_inertia_pos_z}" rpy="${wheel_inertia_pos_r} ${wheel_inertia_pos_p} ${wheel_inertia_pos_w}"/>
+            <mass value="${wheel_mass}"/>
+            <xacro:cylinderical_tube_inertia r1="${wheel_radius}" r2="${wheel_radius/4.0}" height="${wheel_height}" mass="${wheel_mass}"/> 
+        </inertial>
+    </link>
+
+    <link name="${prefix}wheel_right_link">
+        <visual>
+            <origin xyz="${wheel_mesh_pos_x} ${wheel_mesh_pos_y} ${wheel_mesh_pos_z}" rpy="-${wheel_mesh_pos_r} ${wheel_mesh_pos_p} ${wheel_mesh_pos_w}" />
+            <geometry>
+                <mesh filename="file://${mesh_puzzlebot_wheel}"/>
+            </geometry>
+            <material name="black"/>
+        </visual>
+
+        <collision>
+            <origin xyz="${wheel_collision_pos_x} ${wheel_collision_pos_y} ${wheel_collision_pos_z}" rpy="-${wheel_collision_pos_r} ${wheel_collision_pos_p} ${wheel_collision_pos_w}"/>
+            <geometry>
+                <cylinder length="${wheel_height}" radius="${wheel_radius}" />
+            </geometry>
+        </collision>
+
+        <inertial>
+            <origin xyz="${wheel_inertia_pos_x} ${wheel_inertia_pos_y} ${wheel_inertia_pos_z}" rpy="-${wheel_inertia_pos_r} ${wheel_inertia_pos_p} ${wheel_inertia_pos_w}"/>
+            <mass value="${wheel_mass}"/>
+            <xacro:cylinderical_tube_inertia r1="${wheel_radius}" r2="${wheel_radius/4.0}" height="${wheel_height}" mass="${wheel_mass}"/>
+        </inertial>
+    </link>
+
+    <link name="${prefix}caster_holder_link">
+        <visual>
+            <origin xyz="${casterholder_mesh_pos_x} ${casterholder_mesh_pos_y} ${casterholder_mesh_pos_z}" rpy="${casterholder_mesh_pos_r} ${casterholder_mesh_pos_p} ${casterholder_mesh_pos_w}"/>
+            <geometry>
+                <mesh filename="file://${mesh_puzzlebot_caster}"/>
+            </geometry>
+            <material name="black"/>
+        </visual>
+
+        <collision>
+            <origin xyz="${casterholder_collision_pos_x} ${casterholder_collision_pos_y} ${casterholder_collision_pos_z}" rpy="${casterholder_collision_pos_r} ${casterholder_collision_pos_p} ${casterholder_collision_pos_w}"/>
+            <geometry>
+                <box size="${casterholder_length} ${casterholder_width} ${casterholder_height}"/>
+            </geometry>
+        </collision>
+
+        <inertial>
+            <origin xyz="${casterholder_inertia_pos_x} ${casterholder_inertia_pos_y} ${casterholder_inertia_pos_z}" rpy="${casterholder_inertia_pos_r} ${casterholder_inertia_pos_p} ${casterholder_inertia_pos_w}"/>
+            <mass value="${casterholder_mass}"/>
+            <xacro:box_inertia mass="${casterholder_mass}" x="${casterholder_length}" y="${casterholder_width}" z="${casterholder_height}" />
+        </inertial>
+    </link>
+
+    <link name="${prefix}wheel_caster_link">
+        <collision>
+            <origin xyz="${casterball_collision_pos_x} ${casterball_collision_pos_y} ${casterball_collision_pos_z}" rpy="${casterball_collision_pos_r} ${casterball_collision_pos_p} ${casterball_collision_pos_w}"/>
+            <geometry>
+                <sphere radius="${casterball_radius}"/>
+            </geometry>
+        </collision>
+
+        <inertial>
+            <origin xyz="${casterball_inertia_pos_x} ${casterball_inertia_pos_y} ${casterball_inertia_pos_z}" rpy="${casterball_inertia_pos_r} ${casterball_inertia_pos_p} ${casterball_inertia_pos_w}"/>
+            <mass value="${casterball_mass}"/>
+            <xacro:solid_sphere_inertia mass="${casterball_mass}" radius="${casterball_radius}" />
+        </inertial>
+    </link>
+
+
+    <link name="${prefix}jetson_link">
+        <visual>
+            <origin xyz="${jetson_mesh_pos_x} ${jetson_mesh_pos_y} ${jetson_mesh_pos_z}" rpy="${jetson_mesh_pos_r} ${jetson_mesh_pos_p} ${jetson_mesh_pos_w}"/>
+            <geometry>
+                <mesh filename="file://${mesh_puzzlebot_jetson}"/>
+            </geometry>
+            <material name="grey"/>
+        </visual>
+  
+        <collision>
+            <origin xyz="${jetson_collision_pos_x} ${jetson_collision_pos_y} ${jetson_collision_pos_z}" rpy="${jetson_collision_pos_r} ${jetson_collision_pos_p} ${jetson_collision_pos_w}"/>
+            <geometry>
+                <box size="${jetson_length} ${jetson_width} ${jetson_height+jetson_offset}"/>
+            </geometry>
+        </collision>
+
+        <inertial>
+            <origin xyz="${jetson_inertia_pos_x} ${jetson_inertia_pos_y} ${jetson_inertia_pos_z}" rpy="${jetson_inertia_pos_r} ${jetson_inertia_pos_p} ${jetson_inertia_pos_w}"/>
+            <mass value="${jetson_mass}"/>
+            <xacro:box_inertia mass="${jetson_mass}" x="${jetson_length}" y="${jetson_width}" z="${jetson_height}" />
+        </inertial>
+    </link>
+
+
+    <!--JOINTS-->
+
+    <joint name="${prefix}chassis_joint" type="fixed">
+        <parent link="${prefix}base_footprint"/>
+        <child link="${prefix}base_link"/>
+        <origin xyz="${chassis_pos_x} ${chassis_pos_y} ${chassis_pos_z}" rpy="${chassis_pos_r} ${chassis_pos_p} ${chassis_pos_w}"/>
+    </joint>
+
+    <joint name="${prefix}wheel_right_joint" type="continuous">
+        <parent link="${prefix}base_link"/> 
+        <child link="${prefix}wheel_right_link"/> 
+        <origin xyz="${wheel_pos_x} -${wheel_pos_y} ${wheel_pos_z}" rpy="${wheel_pos_r} ${wheel_pos_p} ${wheel_pos_w}"/>
+        <axis xyz="0 1 0"/> 
+    </joint>
+
+    <joint name="${prefix}wheel_left_joint" type="continuous">
+        <parent link="${prefix}base_link"/>
+        <child link="${prefix}wheel_left_link"/>
+        <origin xyz="${wheel_pos_x} ${wheel_pos_y} ${wheel_pos_z}" rpy="${wheel_pos_r} ${wheel_pos_p} ${wheel_pos_w}"/>
+        <axis xyz="0 1 0"/>
+    </joint>
+
+    <joint name="${prefix}caster_holder_joint" type="fixed">
+        <parent link="${prefix}base_link"/>
+        <child link="${prefix}caster_holder_link"/>
+        <origin xyz="${casterholder_pos_x} ${casterholder_pos_y} ${casterholder_pos_z}" rpy="${casterholder_pos_r} ${casterholder_pos_p} ${casterholder_pos_w}"/>
+    </joint>
+
+    <joint name="${prefix}wheel_caster_joint" type="fixed">
+        <parent link="${prefix}caster_holder_link"/>
+        <child link="${prefix}wheel_caster_link"/>
+        <origin xyz="${casterball_pos_x} ${casterball_pos_y} ${casterball_pos_z}" rpy="${casterball_pos_r} ${casterball_pos_p} ${casterball_pos_w}"/>
+    </joint>
+
+    <joint name="${prefix}jetson_joint" type="fixed">
+        <parent link="${prefix}base_link"/>
+        <child link="${prefix}jetson_link"/>
+        <origin xyz="${jetson_pos_x} ${jetson_pos_y} ${jetson_pos_z}" rpy="${jetson_pos_r} ${jetson_pos_p} ${jetson_pos_w}"/>
+    </joint>
+
+
+    <gazebo reference="${prefix}wheel_left_link">
+        <mu1>1.0</mu1>
+        <mu2>1.0</mu2>
+        <kp>700000.0</kp>
+        <kd>80.0</kd>
+        <minDepth>0.001</minDepth>
+        <maxVel>0.1</maxVel>
+        <material>Gazebo/Black</material>
+        <fdir1>1 0 0</fdir1>
+    </gazebo>
+
+    <gazebo reference="${prefix}wheel_right_link">
+        <mu1>1.0</mu1>
+        <mu2>1.0</mu2>
+        <kp>700000.0</kp>
+        <kd>80.0</kd>
+        <minDepth>0.001</minDepth>
+        <maxVel>0.1</maxVel>
+        <material>Gazebo/Black</material>
+        <fdir1>1 0 0</fdir1>
+    </gazebo>
+
+    <gazebo reference="${prefix}wheel_caster_link">
+        <mu1>0.08</mu1>
+        <mu2>0.08</mu2>
+        <kp>700000.0</kp>
+        <kd>80.0</kd>
+        <minDepth>0.001</minDepth>
+        <maxVel>0.1</maxVel>
+        <fdir1>1 0 0</fdir1>
+        <material>Gazebo/Black</material>
+    </gazebo>
+
+</xacro:macro>
+</robot>

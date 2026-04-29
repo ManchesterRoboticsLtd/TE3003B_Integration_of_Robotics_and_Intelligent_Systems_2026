@@ -1,0 +1,20 @@
+{
+    "python.autoComplete.extraPaths": [
+        "/home/mcr2/ros2_ws/install/puzzlebot_description/lib/python3.10/site-packages",
+        "/home/mcr2/ros2_utilities_ws/install/ros_ign_interfaces/local/lib/python3.10/dist-packages",
+        "/home/mcr2/ros2_utilities_ws/install/ros_gz_interfaces/local/lib/python3.10/dist-packages",
+        "/home/mcr2/ros2_utilities_ws/install/micro_ros_msgs/local/lib/python3.10/dist-packages",
+        "/home/mcr2/ros2_utilities_ws/install/aruco_msgs/local/lib/python3.10/dist-packages",
+        "/opt/ros/humble/lib/python3.10/site-packages",
+        "/opt/ros/humble/local/lib/python3.10/dist-packages"
+    ],
+    "python.analysis.extraPaths": [
+        "/home/mcr2/ros2_ws/install/puzzlebot_description/lib/python3.10/site-packages",
+        "/home/mcr2/ros2_utilities_ws/install/ros_ign_interfaces/local/lib/python3.10/dist-packages",
+        "/home/mcr2/ros2_utilities_ws/install/ros_gz_interfaces/local/lib/python3.10/dist-packages",
+        "/home/mcr2/ros2_utilities_ws/install/micro_ros_msgs/local/lib/python3.10/dist-packages",
+        "/home/mcr2/ros2_utilities_ws/install/aruco_msgs/local/lib/python3.10/dist-packages",
+        "/opt/ros/humble/lib/python3.10/site-packages",
+        "/opt/ros/humble/local/lib/python3.10/dist-packages"
+    ]
+}

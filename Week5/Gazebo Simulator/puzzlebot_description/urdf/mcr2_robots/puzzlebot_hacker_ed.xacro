@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="Puzzlebot_Hacker_Ed.">
+
+<xacro:arg name="prefix" default=""/>
+
+<!-- files for gazebo costumization -->
+<xacro:include filename="$(find puzzlebot_description)/urdf/mcr2_mechanical/puzzlebot_hacker_base.urdf.xacro"/>
+<xacro:include filename="$(find puzzlebot_description)/urdf/mcr2_robots/hacker_ed/parameters_hacker_ed.xacro" />
+<xacro:include filename="$(find puzzlebot_description)/urdf/mcr2_misc/materials.xacro" />
+<xacro:include filename="$(find puzzlebot_description)/urdf/mcr2_misc/macros.xacro" />
+
+<xacro:include filename="$(find puzzlebot_description)/urdf/mcr2_sensors/laser_camera_bracket.xacro" />
+<xacro:include filename="$(find puzzlebot_description)/urdf/mcr2_control/gazebo_control.xacro" />
+
+<!--LINKS-->
+
+<xacro:puzzlebot_hacker_ed_base prefix="$(arg prefix)" />
+<!--<xacro:laser_camera_sensor prefix="$(arg prefix)" />-->
+<xacro:puzzlebot_control prefix="$(arg prefix)" />
+
+</robot>

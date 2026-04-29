@@ -1,0 +1,31 @@
+<?xml version='1.0'?>
+<sdf version='1.4'>
+    <model name='aruco003_cv'>
+    <static>true</static>
+    
+        <link name='link0'>
+            <pose>0 0 0 0 0 3.1415</pose>
+                        
+            <visual name='visual'>
+                <geometry>
+                    <mesh>
+                        <uri>./meshes/aruco003.dae</uri>
+                    </mesh>
+                </geometry>
+            </visual>
+            
+            <collision name='collision'>
+                <pose>0 0 0 0 0 0</pose>
+                <geometry>
+                    <box>
+                        <size>0.01 0.25 0.25</size>
+                    </box>
+                </geometry>
+            </collision>
+            
+        </link>
+
+    </model>
+
+</sdf>
+
